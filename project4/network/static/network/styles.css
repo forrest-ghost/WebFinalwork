@@ -1,0 +1,101 @@
+body{
+    background-color:  #ffb6c1;
+    font-family: Helvetica;
+    font-size: 21px;
+}
+
+
+.body{
+  padding: 30px;
+  color: black ;
+}
+
+
+#jumbo{
+    padding: 10%;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: #ff6347;
+    color: white;
+}
+
+
+.userurl{
+    color: white;
+    font-weight: 1000;
+    padding: 9px;
+    background-color: #ba55d3;
+    border-style: solid;
+    border-color: #dc143c;
+    border-width: 3px;
+    border-radius: 6px;
+}
+
+
+.card{
+    padding: 3%;
+    box-shadow: 0 9px 9px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    background-color: #ffa500;
+    font-family: Helvetica;
+}
+
+
+.card-body{
+    background-color: #ffd700;
+    font-family: Helvetica;
+    font-size: 23px;
+    font-weight: normal;
+}
+
+
+.pname{
+  color: #ff7f50;
+  font-family: Helvetica;
+}
+
+
+form{
+    font-family: Helvetica;
+    font-size: 23px;
+    font-weight: normal;
+}
+
+
+.likebtn,.unlikebtn{
+    cursor: pointer;
+    animation: bird 0.3s linear;
+}
+
+
+@keyframes bird{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 23px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+
+::-webkit-scrollbar-thumb{
+    background: #21a0bf;
+    border: black;
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+    background: #021617;
+}

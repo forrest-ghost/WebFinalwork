@@ -1,0 +1,16 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<h2><b>What do you want to share {{user.username}}?</b></h2>
+<div class="container" style="background-color: #ff4500; padding: 30px">
+
+    <form action="{% url 'sendpost' %}" method="POST">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1"><b>Your Wish Is My Command<b></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Type in here..."
+                name="content" style="background-color: white;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

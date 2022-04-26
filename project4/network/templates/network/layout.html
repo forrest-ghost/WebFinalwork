@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Social Network{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'network/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff69b4;">
+            <a class="navbar-brand" href="{% url 'index' %}" style="font-size: 36px; font-weight: bold; color: white">
+                <div id="photo">
+                <img src="{% static 'network/images/fire.png' %}" style="width:53%; margin-left: 9%" >
+                </div>
+            </a>
+            <div>
+                <ul class="navbar-nav mr-auto" style="margin-left: -16%">
+
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' user.username %}" style="font-size: 33px; font-weight: bold; color: white"><strong>| {{ user.username }} |</strong></a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}" style="font-size: 33px; font-weight: bold; color: white">All Posts |</a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'followpost' %}" style="font-size: 33px; font-weight: bold; color: white">Following |</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'newpost' %}" style="font-size: 33px; font-weight: bold; color: white">New Post |</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}" style="font-size: 33px; font-weight: bold; color: white">Log Out</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}" style="font-size: 33px; font-weight: bold; color: white">Log In |</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}" style="font-size: 33px; font-weight: bold; color: white">Register</a>
+                        </li>
+                    {% endif %}
+
+                     <form method="post" action="{% url 'search' %}">
+                    {% csrf_token %}
+                    <input class="search" type="text" name="q" placeholder="Search Record">
+                </form>
+                </ul>
+            </div>
+          </nav>
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+        <script src="{% static 'network/index.js' %}"></script>
+    </body>
+</html>
